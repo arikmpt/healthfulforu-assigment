@@ -1,0 +1,292 @@
+name: Subscription
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/subscription/plans
+    metadata:
+      custom: []
+      groupName: Subscription
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List available subscription plans'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"success":true,"message":"Subscription plans retrieved successfully","data":[{"id":1,"uuid":"598468bb-c6f6-4074-95ce-0148d2dbd7e1","name":"Free","slug":"free","description":"Access to free content only","price":"0.00","currency":"USD","billing_period":"monthly","billing_cycle_days":30,"is_active":true,"features":["Access to free articles and videos","Basic health tips","Community support"],"sort_order":1,"created_at":"2026-01-14T18:39:07.000000Z","updated_at":"2026-01-14T18:39:07.000000Z"},{"id":2,"uuid":"14e13b63-80ab-4454-a8e2-a633a5bbeb57","name":"Basic","slug":"basic","description":"Essential health content for individuals","price":"9.99","currency":"USD","billing_period":"monthly","billing_cycle_days":30,"is_active":true,"features":["All free content","Access to premium articles","Personalized recommendations","Email support"],"sort_order":2,"created_at":"2026-01-14T18:39:07.000000Z","updated_at":"2026-01-14T18:39:07.000000Z"},{"id":3,"uuid":"617ba7e1-0c92-4334-94b2-bdd0c2482bae","name":"Premium","slug":"premium","description":"Complete health and wellness package","price":"19.99","currency":"USD","billing_period":"monthly","billing_cycle_days":30,"is_active":true,"features":["All basic features","Access to all premium content","Exclusive videos and webinars","Advanced personalization","Priority support","Downloadable resources"],"sort_order":3,"created_at":"2026-01-14T18:39:07.000000Z","updated_at":"2026-01-14T18:39:07.000000Z"},{"id":4,"uuid":"ad7004db-0856-491d-b013-92a7c3c6e0ea","name":"Annual Premium","slug":"annual-premium","description":"Best value - Premium features with annual billing","price":"199.99","currency":"USD","billing_period":"yearly","billing_cycle_days":365,"is_active":true,"features":["All premium features","Save $40 per year","Annual exclusive bonuses","Extended support"],"sort_order":4,"created_at":"2026-01-14T18:39:07.000000Z","updated_at":"2026-01-14T18:39:07.000000Z"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-response-time: 6.13ms
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/subscription/subscriptions/current
+    metadata:
+      custom: []
+      groupName: Subscription
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Get current user's active subscription"
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"success":false,"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-response-time: 0.37ms
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/subscription/subscriptions
+    metadata:
+      custom: []
+      groupName: Subscription
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Subscribe to a plan'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      plan_id:
+        custom: []
+        name: plan_id
+        description: 'The <code>id</code> of an existing record in the subscription_plans table.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      payment_method:
+        custom: []
+        name: payment_method
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      payment_data:
+        custom: []
+        name: payment_data
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      plan_id: architecto
+      payment_method: architecto
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/v1/subscription/subscriptions/{subscription_id}/cancel'
+    metadata:
+      custom: []
+      groupName: Subscription
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Cancel subscription'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      subscription_id:
+        custom: []
+        name: subscription_id
+        description: 'The ID of the subscription.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      subscription_id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/subscription/subscriptions/history
+    metadata:
+      custom: []
+      groupName: Subscription
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get subscription history'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"success":false,"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-response-time: 0.36ms
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/subscription/subscriptions/assign
+    metadata:
+      custom: []
+      groupName: Subscription
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        Subscribe a user to a plan (Admin only)
+        Useful for testing and manual subscription management
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        custom: []
+        name: user_id
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      plan_id:
+        custom: []
+        name: plan_id
+        description: 'The <code>id</code> of an existing record in the subscription_plans table.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      user_id: architecto
+      plan_id: architecto
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

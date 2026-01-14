@@ -1,0 +1,1370 @@
+name: Content
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/content/contents
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get list content'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      type:
+        custom: []
+        name: type
+        description: ''
+        required: false
+        example: video
+        type: string
+        enumValues:
+          - article
+          - video
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      access_level:
+        custom: []
+        name: access_level
+        description: ''
+        required: false
+        example: premium
+        type: string
+        enumValues:
+          - free
+          - premium
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      topic_id:
+        custom: []
+        name: topic_id
+        description: 'The <code>id</code> of an existing record in the topics table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      search:
+        custom: []
+        name: search
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sort_by:
+        custom: []
+        name: sort_by
+        description: ''
+        required: false
+        example: published_at
+        type: string
+        enumValues:
+          - published_at
+          - views_count
+          - likes_count
+          - created_at
+          - title
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sort_order:
+        custom: []
+        name: sort_order
+        description: ''
+        required: false
+        example: asc
+        type: string
+        enumValues:
+          - asc
+          - desc
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Must be at least 1. Must not be greater than 100.'
+        required: false
+        example: 22
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      type: video
+      access_level: premium
+      search: b
+      sort_by: published_at
+      sort_order: asc
+      per_page: 22
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"success":true,"message":"Contents retrieved successfully","data":[{"id":14,"uuid":"60d192e3-02c0-4e6e-8435-3a8b69c4feda","title":"Full Body Strength Training Workout","slug":"full-body-strength-training-workout","summary":"Complete strength training routine targeting all major muscle groups.","thumbnail_url":"https:\/\/via.placeholder.com\/800x450\/2196F3\/FFFFFF?text=Video+4","type":"video","access_level":"premium","status":"published","published_at":"2025-12-15T18:39:07.000000Z","duration_minutes":45,"read_time_minutes":null,"views_count":1781,"likes_count":632,"shares_count":38,"bookmarks_count":353,"author":{"id":1,"name":"Super Admin","avatar_url":null},"topics":[{"id":8,"uuid":"134de51c-2a16-4508-b70e-b169bff0cb24","name":"Strength Training","slug":"strength-training","description":"Building muscle and bone strength","icon_url":null,"type":"topic","parent_id":6,"sort_order":2,"is_active":true,"created_at":"2026-01-14T18:39:07.000000Z","updated_at":"2026-01-14T18:39:07.000000Z"}],"created_at":"2026-01-14T18:39:07.000000Z","updated_at":"2026-01-14T18:39:07.000000Z"},{"id":12,"uuid":"57b5d0e4-144e-41b3-9fc6-048c8a0878dd","title":"Advanced HIIT Workout for Fat Loss","slug":"advanced-hiit-workout-for-fat-loss","summary":"Intense interval training to maximize calorie burn and improve fitness.","thumbnail_url":"https:\/\/via.placeholder.com\/800x450\/2196F3\/FFFFFF?text=Video+2","type":"video","access_level":"premium","status":"published","published_at":"2026-01-12T18:39:07.000000Z","duration_minutes":30,"read_time_minutes":null,"views_count":5095,"likes_count":397,"shares_count":168,"bookmarks_count":78,"author":{"id":1,"name":"Super Admin","avatar_url":null},"topics":[{"id":7,"uuid":"a13349bd-f972-47da-a70c-b74a09fcfb6e","name":"Cardio Exercises","slug":"cardio-exercises","description":"Heart-healthy aerobic activities","icon_url":null,"type":"topic","parent_id":6,"sort_order":1,"is_active":true,"created_at":"2026-01-14T18:39:07.000000Z","updated_at":"2026-01-14T18:39:07.000000Z"}],"created_at":"2026-01-14T18:39:07.000000Z","updated_at":"2026-01-14T18:39:07.000000Z"}],"meta":{"current_page":1,"from":1,"last_page":1,"per_page":22,"to":2,"total":2},"links":{"first":"http:\/\/localhost:8000\/api\/v1\/content\/contents?page=1","last":"http:\/\/localhost:8000\/api\/v1\/content\/contents?page=1","prev":null,"next":null}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-response-time: 54.66ms
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/content/contents/recommended
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get recommended content'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"success":false,"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-response-time: 1.22ms
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/content/contents/{slug}'
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show content by slug'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      slug:
+        custom: []
+        name: slug
+        description: 'The slug of the content.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      slug: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"success":false,"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-response-time: 0.53ms
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/content/contents
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a content'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        custom: []
+        name: title
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      slug:
+        custom: []
+        name: slug
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      summary:
+        custom: []
+        name: summary
+        description: 'Must not be greater than 1000 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      body:
+        custom: []
+        name: body
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      video_url:
+        custom: []
+        name: video_url
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://bailey.com/'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      thumbnail_url:
+        custom: []
+        name: thumbnail_url
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://rempel.com/sunt-nihil-accusantium-harum-mollitia'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: ''
+        required: true
+        example: video
+        type: string
+        enumValues:
+          - article
+          - video
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      access_level:
+        custom: []
+        name: access_level
+        description: ''
+        required: true
+        example: free
+        type: string
+        enumValues:
+          - free
+          - premium
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: ''
+        required: true
+        example: draft
+        type: string
+        enumValues:
+          - draft
+          - published
+          - archived
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      published_at:
+        custom: []
+        name: published_at
+        description: 'Must be a valid date.'
+        required: false
+        example: '2026-01-14T18:49:34'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      duration_minutes:
+        custom: []
+        name: duration_minutes
+        description: 'Must be at least 1.'
+        required: false
+        example: 23
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      read_time_minutes:
+        custom: []
+        name: read_time_minutes
+        description: 'Must be at least 1.'
+        required: false
+        example: 64
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      metadata:
+        custom: []
+        name: metadata
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      topic_ids:
+        custom: []
+        name: topic_ids
+        description: 'The <code>id</code> of an existing record in the topics table.'
+        required: false
+        example: null
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      title: b
+      slug: 'n'
+      summary: g
+      body: architecto
+      video_url: 'http://bailey.com/'
+      thumbnail_url: 'http://rempel.com/sunt-nihil-accusantium-harum-mollitia'
+      type: video
+      access_level: free
+      status: draft
+      published_at: '2026-01-14T18:49:34'
+      duration_minutes: 23
+      read_time_minutes: 64
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/content/contents/{content_id}'
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update a content'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      content_id:
+        custom: []
+        name: content_id
+        description: 'The ID of the content.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      content_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        custom: []
+        name: title
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      slug:
+        custom: []
+        name: slug
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      summary:
+        custom: []
+        name: summary
+        description: 'Must not be greater than 1000 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      body:
+        custom: []
+        name: body
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      video_url:
+        custom: []
+        name: video_url
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://bailey.com/'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      thumbnail_url:
+        custom: []
+        name: thumbnail_url
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://rempel.com/sunt-nihil-accusantium-harum-mollitia'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: ''
+        required: false
+        example: article
+        type: string
+        enumValues:
+          - article
+          - video
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      access_level:
+        custom: []
+        name: access_level
+        description: ''
+        required: false
+        example: premium
+        type: string
+        enumValues:
+          - free
+          - premium
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: ''
+        required: false
+        example: published
+        type: string
+        enumValues:
+          - draft
+          - published
+          - archived
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      published_at:
+        custom: []
+        name: published_at
+        description: 'Must be a valid date.'
+        required: false
+        example: '2026-01-14T18:49:34'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      duration_minutes:
+        custom: []
+        name: duration_minutes
+        description: 'Must be at least 1.'
+        required: false
+        example: 23
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      read_time_minutes:
+        custom: []
+        name: read_time_minutes
+        description: 'Must be at least 1.'
+        required: false
+        example: 64
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      metadata:
+        custom: []
+        name: metadata
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      topic_ids:
+        custom: []
+        name: topic_ids
+        description: 'The <code>id</code> of an existing record in the topics table.'
+        required: false
+        example: null
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      title: b
+      slug: 'n'
+      summary: g
+      body: architecto
+      video_url: 'http://bailey.com/'
+      thumbnail_url: 'http://rempel.com/sunt-nihil-accusantium-harum-mollitia'
+      type: article
+      access_level: premium
+      status: published
+      published_at: '2026-01-14T18:49:34'
+      duration_minutes: 23
+      read_time_minutes: 64
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/content/contents/{content_id}'
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remove a content'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      content_id:
+        custom: []
+        name: content_id
+        description: 'The ID of the content.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      content_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/v1/content/contents/{content_id}/like'
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Toggle like on a content'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      content_id:
+        custom: []
+        name: content_id
+        description: 'The ID of the content.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      content_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/v1/content/contents/{content_id}/bookmark'
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Toggle bookmark on content'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      content_id:
+        custom: []
+        name: content_id
+        description: 'The ID of the content.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      content_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/v1/content/contents/{content_id}/share'
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Record content share'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      content_id:
+        custom: []
+        name: content_id
+        description: 'The ID of the content.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      content_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/content/topics
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List all active topics'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"success":false,"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-response-time: 0.35ms
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/content/topics/{id}'
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get topic details'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the topic.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"success":false,"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-response-time: 0.26ms
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/content/topics
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create new topic (admin only)'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 100 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      slug:
+        custom: []
+        name: slug
+        description: 'Must not be greater than 120 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: false
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      icon_url:
+        custom: []
+        name: icon_url
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://www.ernser.org/harum-mollitia-modi-deserunt-aut-ab-provident-perspiciatis-quo.html'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: ''
+        required: true
+        example: category
+        type: string
+        enumValues:
+          - topic
+          - category
+          - condition
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      parent_id:
+        custom: []
+        name: parent_id
+        description: 'The <code>id</code> of an existing record in the topics table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sort_order:
+        custom: []
+        name: sort_order
+        description: 'Must be at least 0.'
+        required: false
+        example: 38
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      name: b
+      slug: 'n'
+      description: 'Eius et animi quos velit et.'
+      icon_url: 'http://www.ernser.org/harum-mollitia-modi-deserunt-aut-ab-provident-perspiciatis-quo.html'
+      type: category
+      sort_order: 38
+      is_active: false
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/content/topics/{id}'
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update topic (admin only)'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the topic.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      slug:
+        custom: []
+        name: slug
+        description: 'Must not be greater than 120 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: false
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      icon_url:
+        custom: []
+        name: icon_url
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://www.ernser.org/harum-mollitia-modi-deserunt-aut-ab-provident-perspiciatis-quo.html'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: ''
+        required: false
+        example: condition
+        type: string
+        enumValues:
+          - topic
+          - category
+          - condition
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      parent_id:
+        custom: []
+        name: parent_id
+        description: 'The <code>id</code> of an existing record in the topics table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sort_order:
+        custom: []
+        name: sort_order
+        description: 'Must be at least 0.'
+        required: false
+        example: 38
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      name: b
+      slug: 'n'
+      description: 'Eius et animi quos velit et.'
+      icon_url: 'http://www.ernser.org/harum-mollitia-modi-deserunt-aut-ab-provident-perspiciatis-quo.html'
+      type: condition
+      sort_order: 38
+      is_active: true
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/content/topics/{id}'
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete topic (admin only)'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the topic.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/content/preferences
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Get user's topic preferences"
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"success":false,"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-response-time: 0.35ms
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/content/preferences
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Add or update topic preference'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      topic_id:
+        custom: []
+        name: topic_id
+        description: 'The <code>id</code> of an existing record in the topics table.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      interest_level:
+        custom: []
+        name: interest_level
+        description: 'Must be at least 1. Must not be greater than 10.'
+        required: false
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      topic_id: 16
+      interest_level: 2
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/content/preferences/topics/{topic_id}'
+    metadata:
+      custom: []
+      groupName: Content
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remove topic preference'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      topic_id:
+        custom: []
+        name: topic_id
+        description: 'The ID of the topic.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      topic_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

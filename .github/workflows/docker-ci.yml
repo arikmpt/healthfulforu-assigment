@@ -1,0 +1,129 @@
+name: Docker CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: healthfulforyou_test
+          POSTGRES_USER: healthfulforyou
+          POSTGRES_PASSWORD: secret
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: pdo, pdo_pgsql, pgsql, redis, mbstring, exif, pcntl, bcmath, gd
+          coverage: xdebug
+
+      - name: Copy .env
+        run: cp .env.example .env
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Generate application key
+        run: php artisan key:generate
+
+      - name: Run migrations
+        env:
+          DB_CONNECTION: pgsql
+          DB_HOST: localhost
+          DB_PORT: 5432
+          DB_DATABASE: healthfulforyou_test
+          DB_USERNAME: healthfulforyou
+          DB_PASSWORD: secret
+          REDIS_HOST: localhost
+        run: php artisan migrate --force
+
+      - name: Run tests
+        env:
+          DB_CONNECTION: pgsql
+          DB_HOST: localhost
+          DB_PORT: 5432
+          DB_DATABASE: healthfulforyou_test
+          DB_USERNAME: healthfulforyou
+          DB_PASSWORD: secret
+          REDIS_HOST: localhost
+        run: php artisan test --coverage
+
+      - name: Upload coverage reports
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.xml
+          fail_ci_if_error: false
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: docker compose -f docker-compose.ci.yml build
+
+      - name: Start containers
+        run: docker compose -f docker-compose.ci.yml up -d
+
+      - name: Wait for containers
+        run: sleep 10
+
+      - name: Create .env for CI
+        run: docker compose -f docker-compose.ci.yml exec -T app cp .env.example .env
+
+      - name: Generate app key
+        run: docker compose -f docker-compose.ci.yml exec -T app php artisan key:generate
+
+      - name: Prepare Laravel directories
+        run: |
+          docker compose -f docker-compose.ci.yml exec -T app \
+          sh -c "mkdir -p storage/framework/{cache,sessions,views} bootstrap/cache \
+          && chmod -R 775 storage bootstrap/cache"
+
+      - name: Check container health
+        run: |
+          docker compose ps
+          curl -f http://localhost:8000/health || exit 1
+
+      - name: Run tests in container
+        run: docker compose -f docker-compose.ci.yml exec -T app php artisan test
+
+      - name: Stop containers
+        if: always()
+        run: docker compose -f docker-compose.ci.yml down -v

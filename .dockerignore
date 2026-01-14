@@ -1,0 +1,53 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation
+README.md
+ARCHITECTURE.md
+DECISIONS.md
+docs/
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Dependencies
+/vendor
+/node_modules
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Storage
+/storage/*.key
+/storage/logs
+/storage/framework/cache
+/storage/framework/sessions
+/storage/framework/testing
+/storage/framework/views
+
+# Cache
+/bootstrap/cache/*
+
+# Build artifacts
+/public/hot
+/public/storage
+/public/build
+/public/css
+/public/js
+
+# OS
+.DS_Store
+Thumbs.db

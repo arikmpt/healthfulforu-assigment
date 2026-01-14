@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  # Laravel Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: healthfulforyou-app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - healthfulforyou-network
+    ports:
+      - "8000:80"
+    depends_on:
+      - pgsql
+      - redis
+    environment:
+      - DB_CONNECTION=pgsql
+      - DB_HOST=pgsql
+      - DB_PORT=5432
+      - DB_DATABASE=healthfulforyou_v2
+      - DB_USERNAME=healthfulforyou
+      - DB_PASSWORD=secret
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - CACHE_STORE=redis
+      - SESSION_DRIVER=redis
+      - QUEUE_CONNECTION=redis
+
+  # PostgreSQL Database
+  pgsql:
+    image: postgres:16-alpine
+    container_name: healthfulforyou-pgsql
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: healthfulforyou_v2
+      POSTGRES_USER: healthfulforyou
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - pgsql-data:/var/lib/postgresql/data
+    networks:
+      - healthfulforyou-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: healthfulforyou-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - healthfulforyou-network
+    command: redis-server --appendonly yes
+
+networks:
+  healthfulforyou-network:
+    driver: bridge
+
+volumes:
+  pgsql-data:
+    driver: local
+  redis-data:
+    driver: local
